@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Form</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f2f4f7;
+            padding: 30px;
+            color: #222;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #1d3557;
+        }
+
+        .descricao {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .secao {
+            margin-bottom: 30px;
+        }
+
+        .secao h2 {
+            color: #1d3557;
+            border-bottom: 2px solid #1d3557;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+        }
+
+        .campo {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .linha {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .experiencia {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            background: #fafafa;
+        }
+
+        .botoes {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        button {
+            border: none;
+            padding: 13px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .adicionar {
+            background: #457b9d;
+            color: white;
+        }
+
+        .enviar {
+            background: #1d3557;
+            color: white;
+            flex: 1;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            .linha {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .botoes {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Curriculum Vitae</h1>
+    <p class="descricao">
+        Complete the form below to create your CV.
+    </p>
+
+    <form id="cvForm">
+
+        <!-- DADOS PESSOAIS -->
+        <div class="secao">
+            <h2>Personal Information</h2>
+
+            <div class="campo">
+                <label for="nome">Full Name</label>
+                <input type="text" id="nome" name="nome"
+                       placeholder="Digite o seu nome completo" required>
+            </div>
+
+            <div class="linha">
+
+                <div class="campo">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email"
+                           placeholder="exemplo@email.com" required>
+                </div>
+
+                <div class="campo">
+                    <label for="telefone">Phone</label>
+                    <input type="tel" id="telefone" name="telefone"
+                           placeholder="+258 84 000 0000">
+                </div>
+
+            </div>
+
+            <div class="linha">
+
+                <div class="campo">
+                    <label for="cidade">City</label>
+                    <input type="text" id="cidade" name="cidade"
+                           placeholder="Ex: Maputo">
+                </div>
+
+                <div class="campo">
+                    <label for="dataNascimento">Date of Birth</label>
+                    <input type="date" id="dataNascimento"
+                           name="dataNascimento">
+                </div>
+
+            </div>
+
+            <div class="campo">
+                <label for="linkedin">LinkedIn</label>
+                <input type="url" id="linkedin" name="linkedin"
+                       placeholder="https://linkedin.com/in/seu-nome">
+            </div>
+
+        </div>
+
+
+        <!-- PERFIL -->
+        <div class="secao">
+
+            <h2>Professional Profile</h2>
+
+            <div class="campo">
+                <label for="perfil">About You</label>
+
+                <textarea id="perfil" name="perfil"
+                    placeholder="Escreva um pequeno resumo sobre você, suas competências e objetivos profissionais..."></textarea>
+            </div>
+
+        </div>
+
+
+        <!-- EXPERIÊNCIA -->
+        <div class="secao">
+
+            <h2>Work Experience</h2>
+
+            <div id="experiencias">
+
+                <div class="experiencia">
+
+                    <div class="campo">
+                        <label>Company</label>
+                        <input type="text"
+                               name="empresa[]"
+                               placeholder="Name da empresa">
+                    </div>
+
+                    <div class="campo">
+                        <label>Position</label>
+                        <input type="text"
+                               name="cargo[]"
+                               placeholder="Ex: Técnico de IT Skills">
+                    </div>
+
+                    <div class="linha">
+
+                        <div class="campo">
+                            <label>Start Date</label>
+                            <input type="month"
+                                   name="inicio[]">
+                        </div>
+
+                        <div class="campo">
+                            <label>End Date</label>
+                            <input type="month"
+                                   name="fim[]">
+                        </div>
+
+                    </div>
+
+                    <div class="campo">
+                        <label>Job Description</label>
+                        <textarea name="descricao[]"
+                            placeholder="Descreva as suas principais responsabilidades..."></textarea>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <button type="button"
+                    class="adicionar"
+                    onclick="addExperience()">
+                + Add Experience
+            </button>
+
+        </div>
+
+
+        <!-- EDUCAÇÃO -->
+        <div class="secao">
+
+            <h2>Education</h2>
+
+            <div class="campo">
+                <label>Institution</label>
+                <input type="text"
+                       name="instituicao"
+                       placeholder="Name da escola ou universidade">
+            </div>
+
+            <div class="campo">
+                <label>Degree / Course</label>
+                <input type="text"
+                       name="curso"
+                       placeholder="Ex: Engenharia IT Skills">
+            </div>
+
+            <div class="linha">
+
+                <div class="campo">
+                    <label>Start Year</label>
+                    <input type="number"
+                           name="anoInicio"
+                           placeholder="2020">
+                </div>
+
+                <div class="campo">
+                    <label>Graduation Year</label>
+                    <input type="number"
+                           name="anoFim"
+                           placeholder="2024">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- COMPETÊNCIAS -->
+        <div class="secao">
+
+            <h2>Skills</h2>
+
+            <div class="campo">
+                <label>Professional Skills</label>
+
+                <textarea name="competencias"
+                    placeholder="Ex:
+HTML e CSS
+JavaScript
+Microsoft Office
+Trabalho em equipe
+Liderança"></textarea>
+            </div>
+
+        </div>
+
+
+        <!-- IDIOMAS -->
+        <div class="secao">
+
+            <h2>Languages</h2>
+
+            <div class="campo">
+
+                <label>Languages You Speak</label>
+
+                <textarea name="idiomas"
+                    placeholder="Ex:
+Portuguese - Fluent
+English - Intermediário
+Francês - Basic"></textarea>
+
+            </div>
+
+        </div>
+
+
+        <!-- CURSOS -->
+        <div class="secao">
+
+            <h2>Courses and Certifications</h2>
+
+            <div class="campo">
+
+                <label>Courses / Certifications</label>
+
+                <textarea name="certificacoes"
+                    placeholder="Name do curso, instituição e ano..."></textarea>
+
+            </div>
+
+        </div>
+
+
+        <!-- BOTÃO -->
+        <div class="botoes">
+
+            <button type="submit" class="enviar">
+                Create My CV
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+
+<script>
+
+    function addExperience() {
+
+        const container = document.getElementById("experiencias");
+
+        const experiencia = document.createElement("div");
+
+        experiencia.className = "experiencia";
+
+        experiencia.innerHTML = `
+
+            <div class="campo">
+                <label>Company</label>
+                <input type="text"
+                       name="empresa[]"
+                       placeholder="Name da empresa">
+            </div>
+
+            <div class="campo">
+                <label>Position</label>
+                <input type="text"
+                       name="cargo[]"
+                       placeholder="Ex: Gerente de vendas">
+            </div>
+
+            <div class="linha">
+
+                <div class="campo">
+                    <label>Start Date</label>
+                    <input type="month"
+                           name="inicio[]">
+                </div>
+
+                <div class="campo">
+                    <label>End Date</label>
+                    <input type="month"
+                           name="fim[]">
+                </div>
+
+            </div>
+
+            <div class="campo">
+                <label>Job Description</label>
+
+                <textarea name="descricao[]"
+                    placeholder="Descreva as suas principais responsabilidades..."></textarea>
+            </div>
+
+        `;
+
+        container.appendChild(experiencia);
+    }
+
+
+    document.getElementById("cvForm").addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        alert("CV information submitted successfully!");
+
+    });
+
+</script>
+
+</body>
+</html>
+
+    
+</body>
+</html>

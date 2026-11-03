@@ -1,0 +1,166 @@
+```css
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f4f7;
+    color: #222;
+    padding: 30px;
+}
+
+.cv {
+    max-width: 900px;
+    margin: auto;
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* CABEÇALHO */
+
+header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+h1 {
+    color: #1d3557;
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.subtitulo {
+    color: #666;
+    font-size: 17px;
+}
+
+/* TÍTULOS */
+
+h2 {
+    color: #1d3557;
+    font-size: 21px;
+    border-bottom: 2px solid #1d3557;
+    padding-bottom: 8px;
+    margin-bottom: 18px;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+/* TABELAS */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+th {
+    background-color: #1d3557;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    vertical-align: top;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+tr:hover {
+    background-color: #eef3f7;
+}
+
+/* DADOS PESSOAIS */
+
+.dados td {
+    border: none;
+    background-color: white;
+}
+
+.dados p {
+    margin-bottom: 8px;
+}
+
+.foto {
+    width: 180px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.foto img {
+    width: 140px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 3px solid #1d3557;
+}
+
+/* INFORMAÇÕES */
+
+.informacao {
+    line-height: 1.7;
+    background-color: #f8f9fa;
+    padding: 18px;
+    border-left: 4px solid #457b9d;
+    border-radius: 5px;
+}
+
+/* PERFIL */
+
+.bio {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    line-height: 1.7;
+    color: #444;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .cv {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    .dados tr,
+    .dados td {
+        display: block;
+        width: 100%;
+    }
+
+    .foto {
+        margin-top: 15px;
+        text-align: center;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th,
+    td {
+        padding: 9px;
+    }
+}
+```
